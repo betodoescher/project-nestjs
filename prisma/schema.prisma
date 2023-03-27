@@ -10,8 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model teamMember {
-  id       String @id
-  name     String
-  function String
+model notifications {
+  id          String    @id
+  recipientId String
+  content     String
+  category    String
+  readAt      DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([recipientId])
 }

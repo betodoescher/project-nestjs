@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
-import { TeamMemberController } from './team-member.controller';
+import { NotificationController } from './controllers/notification.controller';
+
 import { PrismaService } from './database/prisma.service';
-import { TeamMemberService } from './services/team-member.service';
-import { TeamMember } from './dtos/team-member';
+import { NotificationService } from './services/notification.service';
+import { CreateNotification } from './validators/create-notification';
 
 @Module({
   imports: [],
-  controllers: [TeamMemberController],
-  providers: [PrismaService, TeamMemberService, TeamMember],
+  controllers: [NotificationController],
+  providers: [PrismaService, NotificationService, CreateNotification],
 })
 export class AppModule {}
